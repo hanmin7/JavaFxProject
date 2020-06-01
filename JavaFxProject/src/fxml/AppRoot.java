@@ -28,4 +28,4 @@ public class AppRoot extends Application {
 		launch(args);
 	}
 	
-}
+}//메인역할 start(Stage primaryStage)
