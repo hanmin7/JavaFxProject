@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -89,6 +90,11 @@ public class InputController implements Initializable {
 			dateExit.setValue(null);
 			txtContent.setText(null);
 		}
+		
+	}
+	
+	public void handleBtnCancelAction(ActionEvent e) {
+		Platform.exit();
 	}
 
 }//디벨로퍼에board1로 테이블 만들었음.

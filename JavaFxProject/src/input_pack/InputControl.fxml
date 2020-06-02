@@ -29,6 +29,6 @@
       <TextArea fx:id="txtContent" layoutX="22.0" layoutY="154.0" prefHeight="132.0" prefWidth="440.0" />
       <Separator layoutX="13.0" layoutY="320.0" prefHeight="0.0" prefWidth="457.0" />
       <Button fx:id="btnReg" onAction="#handleBtnRegAction" layoutX="189.0" layoutY="340.0" mnemonicParsing="false" text="등록" />
-      <Button fx:id="btnCancel" layoutX="252.0" layoutY="340.0" mnemonicParsing="false" text="취소" />
+      <Button fx:id="btnCancel" onAction="#handleBtnCancelAction" layoutX="252.0" layoutY="340.0" mnemonicParsing="false" text="취소" />
    </children>
 </AnchorPane>
