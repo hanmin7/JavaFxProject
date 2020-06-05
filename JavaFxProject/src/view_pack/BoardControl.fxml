@@ -25,8 +25,8 @@
 		<Label layoutX="235" layoutY="88" text="공개여부" />
 		<Label layoutX="353" layoutY="88" text="종료일자" />
 		<Label layoutX="235" layoutY="139" text="내용" />
-      <Button fx:id="bf" layoutX="145.0" layoutY="313.0" text="이전" />
-      <Button fx:id="af" layoutX="229.0" layoutY="313.0" text="다음" />
+      <Button fx:id="back" layoutX="145.0" layoutY="313.0" text="이전" />
+      <Button fx:id="next" layoutX="229.0" layoutY="313.0" text="다음" />
       <Button fx:id="edit" layoutX="304.0" layoutY="313.0" text="수정" />
 		 
 	</children>

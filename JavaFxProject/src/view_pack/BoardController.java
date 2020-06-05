@@ -31,8 +31,8 @@ public class BoardController implements Initializable {
 	@FXML ComboBox<String> combo;
 	@FXML TextField date;
 	@FXML TextArea content;
-	@FXML Button bf;
-	@FXML Button af;
+	@FXML Button back;
+	@FXML Button next;
 	@FXML Button edit;
 	
 	@Override
@@ -101,6 +101,8 @@ public class BoardController implements Initializable {
 		}
 		return list;
 	} //getBoardList
+	
+	
 	
 	
 	
