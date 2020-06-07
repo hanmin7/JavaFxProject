@@ -15,7 +15,7 @@ public class StageMain extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("Root.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("AddForm.fxml"));
 		
 //		FXMLLoader loader = new FXMLLoader(); //인스턴스 선언 후 호출하는 방법
 //		Parent root = loader.load(getClass().getResource("Root.fxml"));

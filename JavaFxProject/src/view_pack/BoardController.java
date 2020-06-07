@@ -12,6 +12,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -47,7 +49,7 @@ public class BoardController implements Initializable {
 		
 		ObservableList<Board> boardList = getBoardList(); //아래 겟보드리스트 (DB에있느거) 가져오는거
 //		ObservableList<Board> boardList = FXCollections.observableArrayList(); //이건 내가 입력하는거 넣는거
-		boardList.add(new Board("test", "1234", "공개", "2020/05/05", "내용ㅇㅇㅇ"));
+//		boardList.add(new Board("test", "1234", "공개", "2020/05/05", "내용ㅇㅇㅇ"));
 		tableView.setItems(boardList);
 		
 		tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Board>() {
@@ -83,6 +85,38 @@ public class BoardController implements Initializable {
 		
 		tableView.setItems(boardList);
 		
+		
+		
+		back.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				int rowIndex = tableView.getSelectionModel().getSelectedIndex();
+				if(rowIndex > 0) {
+					tableView.getSelectionModel().select(rowIndex-1);
+				}
+			}
+		});
+		
+		
+		next.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				tableView.getSelectionModel().selectNext();
+			}
+		});
+		
+		edit.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				String newContent = content.getText();
+				Board newBoard = tableView.getSelectionModel().getSelectedItem();
+				newBoard.setContent(newContent);
+				handleBtnEditAction(newBoard);
+				
+			}
+		});
+
+		
 	} //initialize 메소드
 	
 	
@@ -102,9 +136,20 @@ public class BoardController implements Initializable {
 		return list;
 	} //getBoardList
 	
+	public void handleBtnBackAction(ActionEvent e) {
+		
+	}
 	
-	
-	
-	
+	public void handleBtnEditAction(Board board) {
+		String sql = "UPDATE board1 SET content = '" + board.getContent() + "' WHERE title ='" + board.getTitle()+"'";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			int r = pstmt.executeUpdate();
+			
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
+	}
 
 } //이전, 다음 , 수정(내용수정)

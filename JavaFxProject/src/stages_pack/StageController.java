@@ -105,6 +105,8 @@ public class StageController implements Initializable {
 				}
 			});
 			
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -133,7 +135,6 @@ public class StageController implements Initializable {
 			ObservableList<XYChart.Data<String, Integer>> datasMath = FXCollections.observableArrayList();
 			for(int i=0; i<scores.size(); i++) {
 				datasMath.add(new XYChart.Data(scores.get(i).getName(), scores.get(i).getMath()));
-				//이름, 국어점수 
 			}
 			seriesMath.setData(datasMath);
 			seriesMath.setName("수학");
@@ -142,7 +143,6 @@ public class StageController implements Initializable {
 			ObservableList<XYChart.Data<String, Integer>> datasEnglish = FXCollections.observableArrayList();
 			for(int i=0; i<scores.size(); i++) {
 				datasEnglish.add(new XYChart.Data(scores.get(i).getName(), scores.get(i).getEnglish()));
-				//이름, 국어점수 
 			}
 			seriesEnglish.setData(datasEnglish);
 			seriesEnglish.setName("영어");
